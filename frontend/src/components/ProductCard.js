@@ -13,7 +13,7 @@ const ProductCard = ({ product, category }) => {
         pricePercantage();
     }, [])
     return (
-        <Link to={`/products/category/${product._id}`} target='' className=' max-h-max pt-3 pb-2 md:p-3 w-56 min-h-max rounded-xl shadow-lg cursor-pointer'>
+        <Link to={`/products/category/${product._id}`} target='' className=' max-h-max pt-3 pb-2 md:p-3 w-56 min-h-max rounded-xl shadow-lg cursor-pointer border-blue-600 border-2'>
             <div className=' h-36 w-32 object-scale-down block mx-auto mb-1'>
                 <img src={product?.productImage[0]} className='block mx-auto h-full' />
             </div>

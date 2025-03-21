@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import productCategory from '../helpers/ProductCategory'
 import UploadImageCloudinary from '../helpers/UploadImage'
 import { toast } from 'react-toastify'
+import { adminupdateproductsroute } from '../utils/apis'
 
 const UpdateProduct = ({onClose,product, getProducts}) => {
 
@@ -33,7 +34,7 @@ const UpdateProduct = ({onClose,product, getProducts}) => {
     }
     const handleSubmit = async (e)=>{
         e.preventDefault();
-        const url = "http://localhost:5555/api/auth/updateproduct";
+        const url = adminupdateproductsroute;
 
         const response = await fetch(url,{
             method:"POST",

@@ -5,6 +5,7 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import imageToBase64 from '../imageConverter/imageToBase64'
 import { toast } from 'react-toastify'
+import { registerroute } from '../utils/apis';
 
 const SignUp = () => {
 
@@ -59,7 +60,7 @@ const SignUp = () => {
             toast.error("Sign Up unsuccessfull")
             return
         }
-        let url = "http://localhost:5555/api/auth/signup";
+        let url = registerroute;
         const response = await fetch(url, {
             method: "POST",
             headers: {
@@ -95,8 +96,8 @@ const SignUp = () => {
     }
     return (
         <div>
-            <main className='min-h-[calc(100vh-110px)] bg-slate-200 pt-3 px-2'>
-                <div className='container bg-white mx-auto py-2 max-w-sm mb-2 border shadow-lg rounded-md'>
+            <main className='h-[calc(100vh-110px)] bg-slate-200 flex justify-center items-center'>
+                <div className='h-full md:max-h-min p-3 w-full md:max-w-md border rounded-lg bg-white shadow-md'>
                     <div className='h-32 '>
                         <div className='h-full w-32 rounded-full relative overflow-hidden block mx-auto'>
                             <img src={data.profilePic || profile} alt='...' className='h-full w-32 rounded-full' />

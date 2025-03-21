@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify';
+import { deletecartroute, placeorderroute, productdetailsroute } from '../utils/apis';
 
 const CartProduct = ({ productId, carts, setCarts}) => {
 
@@ -11,7 +12,8 @@ const CartProduct = ({ productId, carts, setCarts}) => {
     let price = countProduct * product.salePrice;
 
     const getProductDetails = async () => {
-        const url = `http://localhost:5555/api/auth/products/catagory/${productId}`
+        
+        const url = `${productdetailsroute}${productId}`
         const res = await fetch(url);
         const response = await res.json();
         setProduct(response.data)
@@ -22,7 +24,7 @@ const CartProduct = ({ productId, carts, setCarts}) => {
     }
 
     const removeItem = async()=>{
-        const url = `http://localhost:5555/api/auth/deletecart`
+        const url = `${deletecartroute}`
         let response = await fetch(url, {
             method: "DELETE",
             headers: {
@@ -49,7 +51,7 @@ const CartProduct = ({ productId, carts, setCarts}) => {
     }
 
     const placeOrder = async ()=>{
-        const url = `http://localhost:5555/api/auth/placeOrder`
+        const url = `${placeorderroute}`
         let response = await fetch(url, {
             method: "POST",
             headers: {

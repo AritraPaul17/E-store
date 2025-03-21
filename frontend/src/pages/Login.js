@@ -5,6 +5,7 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { toast } from 'react-toastify'
 import { UserContext } from '../context/UserContext';
+import { loginroute } from '../utils/apis';
 
 const Login = () => {
 
@@ -35,8 +36,7 @@ const Login = () => {
             code: false,
             message: ""
         })
-
-        let url = "http://localhost:5555/api/auth/login";
+        let url = loginroute;
         const response = await fetch(url, {
             method: "POST",
             headers: {
@@ -65,10 +65,11 @@ const Login = () => {
         dispatch({type:"ADD_USER",payload:res.data})
         navigate('/');
     }
+    
     return (
         <div>
-            <main className='min-h-[calc(100vh-140px)] bg-slate-200 pt-5'>
-                <div className='container py-2 max-w-sm mb-2 border rounded-lg bg-white shadow-md'>
+            <main className='h-[calc(100vh-140px)] bg-slate-200 flex justify-center items-center'>
+                <div className='h-full md:max-h-min p-3 w-full md:max-w-md border rounded-lg bg-white shadow-md'>
                     <div className='h-32 flex justify-center'>
                         <img src={profile} alt='...' className='h-full rounded-full' />
                     </div>

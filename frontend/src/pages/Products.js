@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ProductCard from '../components/ProductCard';
+import { productsroute } from '../utils/apis';
 
 const Products = () => {
   const { category } = useParams();
@@ -11,7 +12,8 @@ const Products = () => {
   const searchProducts = async () => {
     const cat = category.substring(0, 1).toUpperCase() + category.substring(1);
     setParamCategory(cat)
-    const url = `http://localhost:5555/api/auth/products/${cat}`;
+    
+    const url = `${productsroute}${cat}`;
     const res = await fetch(url);
     const response = await res.json();
     setAllProducts([...response]);
@@ -28,8 +30,8 @@ const Products = () => {
           
         </div> */}
 
-        <div className='p-3 h-full w-full overflow-y-scroll flex gap-4 flex-wrap '>
-          {allProducts ? allProducts.map((product,ind) => {
+        <div className='p-3 h-full w-full overflow-y-scroll flex gap-4 flex-wrap justify-center md:justify-normal'>
+          {allProducts ? allProducts?.map((product,ind) => {
             return <ProductCard key={ind} product={product} category={paramCategory}/>
           })
             : <h1>Product is not found</h1>}

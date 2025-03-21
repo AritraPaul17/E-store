@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import CartProduct from '../components/CartProduct';
 import { useLocation } from 'react-router-dom';
+import { getcartroute } from '../utils/apis';
 
 const MyCart = () => {
   const [carts, setCarts] = useState([]);
   const loc = useLocation();
 
   const getCart = async () => {
-    const url = `http://localhost:5555/api/auth/getcart`;
+    const url = `${getcartroute}`;
     const res = await fetch(url, {
       method: "GET",
       headers: {

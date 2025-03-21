@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react'
+import { getordersroute } from '../utils/apis';
 
 export const OrderContext = createContext();
 
@@ -6,7 +7,7 @@ export const OrderProvider = (props)=>{
     const [orders,setOrders] = useState([]);
     const [message,setMessage] = useState("")
     const getOrders = async()=>{
-        const url = `http://localhost:5555/api/auth/getOrders`
+        const url = `${getordersroute}`
         const res = await fetch(url,{
             headers: {
                 "Content-Type": "application/json",
@@ -23,7 +24,8 @@ export const OrderProvider = (props)=>{
     }
 
     useEffect(() => {
-        getOrders();
+        if(localStorage.getItem('JWT'))
+            getOrders();
     }, [])
 
     return (

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { addcartroute, productdetailsroute } from '../utils/apis';
 
 const IndProduct = () => {
     const [countProduct, setCountProduct] = useState(1)
@@ -14,7 +15,7 @@ const IndProduct = () => {
     const navigate = useNavigate();
 
     const handleCart = async()=>{
-        const url = `http://localhost:5555/api/auth/addcart/${id}`
+        const url = `${addcartroute}${id}`
         
         if(!localStorage.getItem("JWT")){
             navigate('/login');
@@ -39,7 +40,7 @@ const IndProduct = () => {
     }
 
     const productdetails = async () => {
-        const url = `http://localhost:5555/api/auth/products/catagory/${id}`
+        const url = `${productdetailsroute}${id}`;        
         const res = await fetch(url);
         const response = await res.json();
         setProduct(response.data)

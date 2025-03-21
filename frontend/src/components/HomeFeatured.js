@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import ProductCard from './ProductCard';
+import { getproductsroute } from '../utils/apis';
 
 const HomeFeatured = () => {
 
     const [specialProducts,setSpecialProducts] = useState([]);
 
     const getProducts = async()=>{
-        const url = "http://localhost:5555/api/auth/getproducts"
+        const url = getproductsroute;
         const allProductsData = await fetch(url);
         const allProducts = await allProductsData.json();
         const arr = allProducts.data.filter((product)=>{

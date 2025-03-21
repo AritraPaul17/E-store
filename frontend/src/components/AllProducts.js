@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import AdminProductCard from './AdminProductCard';
+import { getproductsroute } from '../utils/apis';
 
 const AllProducts = () => {
     const [products,setProducts] = useState([]);
 
     const getProducts = async()=>{
-        const url = "http://localhost:5555/api/auth/getproducts"
+        const url = getproductsroute;
         const allProductsData = await fetch(url);
         const allProducts = await allProductsData.json();
         setProducts([...allProducts.data]);

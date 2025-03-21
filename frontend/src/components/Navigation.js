@@ -10,7 +10,7 @@ const Navigation = () => {
 
     return (
         <nav className='h-16 shadow-xl shadow-black-500/50'>
-            <div className='h-full container flex px-4 items-center justify-between' >
+            <div className='h-full container flex items-center justify-between' >
 
                 <div className='cursor-pointer'>
                     <Link><img src={logo} alt='Logo' className=' w-36' /></Link>
@@ -23,7 +23,7 @@ const Navigation = () => {
                     </div>
                 </div>
 
-                <div className='flex gap-12 justify-center items-center'>
+                <div className='ml-2 flex gap-5 items-center'>
                     {/* ----profile---- */}
                     <div className=' cursor-pointer'>
                         <Link to={localStorage.getItem('JWT')?'/profile':'/login'} className='text-3xl' title='Your Profile'><CgProfile /></Link>

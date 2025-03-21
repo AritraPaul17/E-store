@@ -1,4 +1,5 @@
 import React, { createContext, useReducer } from 'react'
+import { getuserroute } from '../utils/apis';
 
 export const UserContext = createContext();
 
@@ -6,7 +7,7 @@ export const UserContextProvider = (props) => {
 
     const getuserDetails =async ()=>{
         const authToken = localStorage.getItem('JWT');
-        const url = `http://localhost:5555/api/auth/getuser`;
+        const url = `${getuserroute}`;
         const response = await fetch(url,{
             method:"GET",
             headers:{

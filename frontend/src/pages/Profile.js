@@ -3,7 +3,6 @@ import { UserContext } from '../context/UserContext'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 
 import { IoLogOutOutline } from "react-icons/io5";
-import { IoIosGift } from "react-icons/io";
 import { FaCartShopping } from "react-icons/fa6";
 import { CgProfile } from "react-icons/cg";
 
@@ -22,7 +21,6 @@ const Profile = () => {
 
     useEffect(() => {
         getDetails()
-
     }, [])
 
     const handleLogout = () => {

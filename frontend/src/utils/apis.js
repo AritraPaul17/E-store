@@ -1,4 +1,4 @@
-const port = "https://e-commerce-backend-jauj.onrender.com";
+const port = "https://e-commerce-backend-jauj.onrender.com/api/auth";
 
 export const productdetailsroute = `${port}/products/catagory/`;
 export const getproductsroute = `${port}/getproducts`;

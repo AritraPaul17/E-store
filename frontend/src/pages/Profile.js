@@ -11,12 +11,14 @@ const Profile = () => {
     const navigate = useNavigate()
 
     const [data, setData] = useState({})
+    const [role, setRole] = useState("General")
 
     const { getuserDetails, dispatch } = useContext(UserContext)
 
     const getDetails = async () => {
         const userData = await getuserDetails();
         setData(userData);
+        setRole(userData.data.role);
     }
 
     useEffect(() => {
@@ -55,7 +57,7 @@ const Profile = () => {
 
                         {/* ---logout--- */}
                         <div className='absolute bottom-4 w-full flex flex-col gap-3 items-center justify-center'>
-                            <Link to='/admin' className='w-[85%] bg-blue-700 text-white font-semibold text-lg p-2 text-center rounded-md' >Admin Page</Link>
+                            {role==="ADMIN"? <Link to='/admin' className='w-[85%] bg-blue-700 text-white font-semibold text-lg p-2 text-center rounded-md' >Admin Page</Link> : ""}
                             <button className='bg-red-600 w-[85%] p-2 rounded-lg font-semibold text-white hover:bg-red-800 duration-500 flex items-center justify-center text-lg gap-2'
                                 onClick={handleLogout}>Log Out <IoLogOutOutline className='text-xl' /></button>
                         </div>

@@ -9,18 +9,23 @@ export const OrderProvider = (props)=>{
     const getOrders = async()=>{
         const url = `${getordersroute}`
         const res = await fetch(url,{
+            method:"GET",
             headers: {
                 "Content-Type": "application/json",
                 authToken: localStorage.getItem('JWT')
               }
         });
         const response = await res.json();
-        // console.log(response.data);
+        console.log(response);
         if(response.data.length===0){
             setMessage(response.message);
             return;
         }
-        setOrders(response.data[0].products);        
+        else {
+            console.log(response.data);
+            
+            setOrders(response.data[0].products);
+        }        
     }
 
     useEffect(() => {

@@ -1,4 +1,4 @@
-const port = "https://e-commerce-backend-jauj.onrender.com/api/auth";
+const port = "https://e-commerce-three-xi-83.vercel.app/api/auth";
 
 export const productdetailsroute = `${port}/products/catagory/`;
 export const getproductsroute = `${port}/getproducts`;

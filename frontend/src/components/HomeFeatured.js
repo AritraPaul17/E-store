@@ -10,7 +10,7 @@ const HomeFeatured = () => {
         const url = getproductsroute;
         const allProductsData = await fetch(url);
         const allProducts = await allProductsData.json();
-        const arr = allProducts.data.filter((product)=>{
+        const arr = allProducts?.data?.filter((product)=>{
             return product.featured === true
         })
         setSpecialProducts(arr);

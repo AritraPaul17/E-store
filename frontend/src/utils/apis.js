@@ -1,4 +1,5 @@
-const port = "http://localhost:5555/api/auth";
+const port = "https://e-store-vml4.onrender.com/api/auth";
+// const port = "http://localhost:5555/api/auth";
 
 export const productdetailsroute = `${port}/products/catagory/`;
 export const getproductsroute = `${port}/getproducts`;
